@@ -1,0 +1,13 @@
+# Docker composer file for Morello Linux
+version: '3.8'
+services:
+  morello-linux:
+    image: "git.morello-project.org:5050/morello/morello-linux/morello-linux:latest"
+    container_name: "morello-linux"
+    environment:
+      - UID=1000
+      - GID=1000
+    volumes:
+      - ./morello:/morello
+    tty: true
+    restart: unless-stopped
