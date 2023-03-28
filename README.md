@@ -2,7 +2,7 @@
 
 ## Docker image for Morello Linux based on Debian.
 
-This page contains some simple instructions to get you started on Morello. In less the 10 minutes you should be able to setup a docker container with everything you need to build and boot into a Morello Debian environment on a Fixed Virtual Platform (FVP: https://developer.arm.com/downloads/-/arm-ecosystem-fvps).
+This page contains some simple instructions to get you started on Morello. In less than 10 minutes you should be able to setup a docker container with everything you need to build and boot into a Morello Debian environment on a Fixed Virtual Platform (FVP: https://developer.arm.com/downloads/-/arm-ecosystem-fvps).
 
 **To set it up please follow the instructions below.**
 
@@ -68,18 +68,12 @@ Install the Morello FVP model as follows:
 $ cd morello
 $ wget -O FVP_Morello_0.11_34.tgz https://developer.arm.com/-/media/Arm%20Developer%20Community/Downloads/OSS/FVP/Morello%20Platform/FVP_Morello_0.11_34.tgz?rev=5f34837ae6c14ede8493dfc24c9af397&hash=862883120C5638E0B3C5ACA6FDDC5558021E1886
 $ tar -xzvf FVP_Morello_0.11_34.tgz
-$ ./FVP_Morello.sh
+$ ./FVP_Morello.sh --force --destination ./FVP_Morello
 ...
 
-(Follow the instructions)
+Please answer with one of: 'yes' or 'no/quit'
+Do you agree to the above terms and conditions? yes
 
-...
-
-Where would you like to install to? [default: /home/<user>/FVP_Morello] ./FVP_Morello
-
-...
-
-'<full path to morello directory>/./FVP_Morello' does not exist, create? [default: yes] yes (Enter)
 ```
 
 Then, bring up the container (from workspace/):
@@ -131,3 +125,15 @@ To exit from the FVP Model press **Ctrl + ]** to access the telnet shell and the
 ```
 telnet> quit
 ```
+
+## Cleanup the morello-linux container
+
+To recover the space used by the morello-linux container execute the following commands:
+
+```
+$ docker stop morello-linux
+$ docker image rm git.morello-project.org:5050/morello/morello-linux/morello-linux:latest -f
+$ docker image prune
+```
+
+For further information please refer to the [Docker](https://docs.docker.com/) documentation.
