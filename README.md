@@ -1,6 +1,12 @@
 # Introduction
 
-Docker image for Morello Linux based on Debian.
+## Docker image for Morello Linux based on Debian.
+
+This page contains some simple instructions to get you started on Morello. In less the 10 minutes you should be able to setup a docker container with everything you need to build and boot into a Morello Debian environment on a Fixed Virtual Platform (FVP: https://developer.arm.com/downloads/-/arm-ecosystem-fvps).
+
+**To set it up please follow the instructions below.**
+
+**Note:** This approach does not require a Morello Board.
 
 # Setup
 
@@ -81,11 +87,47 @@ Then, bring up the container (from workspace/):
 $ docker-compose up -d
 ```
 
-To build the Morello Linux image, login into the container as user with id '1000':
+To run the Morello Linux image on the FVP, login into the container as user with id '1000' and run the command:
 
 ```
 $ docker exec -it -u 1000 morello-linux /bin/bash
+```
+
+And then inside the docker:
+
+```
 # morello
 ```
 
 Have a lot of fun!
+
+**Note:** The first boot of the FVP model can take 5-10 minutes depending on the underlying hardware.
+
+## Booting Debian on the FVP Model
+
+In GRUB select the following option:
+
+```
+Debian Morello FVP (Device Tree)
+```
+
+When the boot process is complete insert the following user credentials:
+
+```
+Username: root
+Password: morello
+```
+
+## Shutdown the FVP Model
+
+To shutdown the FVP correctly type on a root shell:
+
+```
+$ shutdown -h now
+```
+
+To exit from the FVP Model press **Ctrl + ]** to access the telnet shell and then:
+
+```
+telnet> quit
+```
