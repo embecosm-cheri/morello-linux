@@ -14,4 +14,6 @@ export SCP_RAMFW=/usr/share/morello/fvp-firmware/scp_fw.bin
 export MCP_RAMFW=/usr/share/morello/fvp-firmware/mcp_fw.bin
 export OUTPUT_DIR=/morello/logs
 
+mkdir -p $OUTPUT_DIR
+
 morello-run.sh -f distro -i /usr/share/morello/images/morello-fvp/morello-fvp.img
