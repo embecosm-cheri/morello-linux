@@ -137,3 +137,7 @@ $ docker image prune
 ```
 
 For further information please refer to the [Docker](https://docs.docker.com/) documentation.
+
+# Container verification
+
+morello-linux generated containers are signed using [cosign](https://github.com/sigstore/cosign). To verify the validity of a container before donwloading it please follow the information contained in the [.cosign](.cosign/README.md) directory.
