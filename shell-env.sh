@@ -13,5 +13,8 @@ fi
 # Chmod /morello and change user
 chown $UID:$GID /morello
 
+# Add all permissions to /morello
+chmod 777 /morello
+
 # Run bash to keep container alive
 tail -f /dev/null

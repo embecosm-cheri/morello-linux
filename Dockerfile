@@ -5,8 +5,11 @@ ARG UID=1000
 ARG GID=1000
 ARG TARGETPLATFORM
 
-# Replace default shell
-RUN rm /bin/sh && ln -s bash /bin/sh
+# Build the image as root user
+USER root
+
+# Set bash as default shell
+SHELL ["/bin/bash", "-c"]
 
 # Update packages
 RUN DEBIAN_FRONTEND=noninteractive apt -qq -y update && \
@@ -16,13 +19,15 @@ RUN DEBIAN_FRONTEND=noninteractive apt -qq -y update && \
     gawk wget git-core diffstat unzip texinfo libtinfo5 \
     build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
     xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
-    pylint3 xterm vim telnet \
+    pylint3 xterm vim telnet rsync \
     ## Build kernel
     bc bison flex device-tree-compiler \
     ## Extra pkg
     locales tmux screen libncurses5-dev \
     ## For building poky docs
     make xsltproc docbook-utils fop dblatex xmlto \
+    ## For building LTP
+    pkgconf autoconf automake \
     ## Install kas
     && pip3 install kas
 
