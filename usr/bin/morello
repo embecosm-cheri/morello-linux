@@ -6,7 +6,7 @@
 
 export MODEL=/morello/FVP_Morello/models/Linux64_GCC-6.4/FVP_Morello
 export PLUGINS_DIR=/morello/FVP_Morello/plugins/Linux64_GCC-6.4
-export AP_ROMFW=/usr/share/morello/fvp-firmware/tf-bl1.bin
+export AP_ROMFW=/usr/share/morello/fvp-firmware/bl1.bin
 export FIP_BIN=/usr/share/morello/fvp-firmware/fip.bin
 export SCP_ROMFW=/usr/share/morello/fvp-firmware/scp_romfw.bin
 export MCP_ROMFW=/usr/share/morello/fvp-firmware/mcp_romfw.bin
