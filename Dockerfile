@@ -52,7 +52,7 @@ RUN chmod a+x /usr/bin/morello-run.sh
 # Clone the relevant repositories
 RUN mkdir -p /usr/share/morello/images
 RUN git clone https://git.morello-project.org/morello/fvp-firmware.git /usr/share/morello/fvp-firmware
-RUN wget -qO- https://git.morello-project.org/morello/morello-linux-docker/-/jobs/artifacts/morello/mainline/raw/morello-fvp.tar.xz?job=build-morello-linux-docker | tar -xJf - -C /usr/share/morello/images
+RUN wget -qO- https://git.morello-project.org/morello/morello-rootfs-images/-/jobs/artifacts/morello/mainline/raw/morello-fvp.tar.xz?job=build-morello-rootfs-images | tar -xJf - -C /usr/share/morello/images
 
 WORKDIR /morello
 VOLUME [ "/morello" ]
