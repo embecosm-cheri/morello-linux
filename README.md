@@ -10,12 +10,18 @@ This page contains some simple instructions to get you started on Morello. In le
 
 # Setup
 
-Install docker:
+## Install docker
 ```
 $ curl -sSL https://get.docker.com | sh
 ```
 
-Install docker-compose:
+**Note:** This guide requires to run docker as a non-root user. After the completion of the command above execute:
+```
+$ dockerd-rootless-setuptool.sh install
+```
+and follow the instructions on screen. For further information please refer to the [Docker](https://docs.docker.com/) documentation.
+
+## Install docker-compose
 
 Latest: v2.17.2
 
@@ -135,8 +141,6 @@ $ docker stop morello-linux
 $ docker image rm git.morello-project.org:5050/morello/morello-linux/morello-linux:latest -f
 $ docker image prune
 ```
-
-For further information please refer to the [Docker](https://docs.docker.com/) documentation.
 
 # Container verification
 
