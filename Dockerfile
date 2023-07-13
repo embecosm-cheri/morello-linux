@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:bullseye
 
 # Docker variables
 ARG UID=1000
