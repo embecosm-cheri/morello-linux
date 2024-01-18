@@ -4,16 +4,18 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-export MODEL=/morello/FVP_Morello/models/Linux64_GCC-6.4/FVP_Morello
-export PLUGINS_DIR=/morello/FVP_Morello/plugins/Linux64_GCC-6.4
-export AP_ROMFW=/usr/share/morello/fvp-firmware/bl1.bin
-export FIP_BIN=/usr/share/morello/fvp-firmware/fip.bin
-export SCP_ROMFW=/usr/share/morello/fvp-firmware/scp_romfw.bin
-export MCP_ROMFW=/usr/share/morello/fvp-firmware/mcp_romfw.bin
-export SCP_RAMFW=/usr/share/morello/fvp-firmware/scp_fw.bin
-export MCP_RAMFW=/usr/share/morello/fvp-firmware/mcp_fw.bin
-export OUTPUT_DIR=/morello/logs
+TOPDIR=$(dirname $0)/../../
+
+export MODEL=${TOPDIR}/morello/FVP_Morello/models/Linux64_GCC-6.4/FVP_Morello
+export PLUGINS_DIR=${TOPDIR}/morello/FVP_Morello/plugins/Linux64_GCC-6.4
+export AP_ROMFW=${TOPDIR}/usr/share/morello/fvp-firmware/bl1.bin
+export FIP_BIN=${TOPDIR}/usr/share/morello/fvp-firmware/fip.bin
+export SCP_ROMFW=${TOPDIR}/usr/share/morello/fvp-firmware/scp_romfw.bin
+export MCP_ROMFW=${TOPDIR}/usr/share/morello/fvp-firmware/mcp_romfw.bin
+export SCP_RAMFW=${TOPDIR}/usr/share/morello/fvp-firmware/scp_fw.bin
+export MCP_RAMFW=${TOPDIR}/usr/share/morello/fvp-firmware/mcp_fw.bin
+export OUTPUT_DIR=${TOPDIR}/morello/logs
 
 mkdir -p $OUTPUT_DIR
 
-morello-run.sh -f distro -i /usr/share/morello/images/morello-fvp/morello-fvp.img
+morello-run.sh -f distro -i ${TOPDIR}/usr/share/morello/images/morello-fvp/morello-fvp.img

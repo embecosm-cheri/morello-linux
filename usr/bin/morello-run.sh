@@ -362,7 +362,7 @@ elif [[ "$NETWORK" == "false" ]]; then
                          -C "board.virtio_net.hostbridge.userNetworking=1"
                          -C "board.virtio_net.enabled=1"
                          -C "board.virtio_net.transport=legacy"
-                         -C "board.virtio_net.hostbridge.userNetPorts=5555=5555"
+                         -C "board.virtio_net.hostbridge.userNetPorts=10005=22,12345=12345,5555=5555"
                  )
          fi
 fi
